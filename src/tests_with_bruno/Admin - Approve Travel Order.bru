@@ -1,0 +1,33 @@
+meta {
+  name: Admin - Approve Travel Order
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{base_url}}/travel-orders/{{order_id}}/status
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "status": "APPROVED"
+  }
+}
+
+tests {  
+  test("Status", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+  test("Response Body", function () {
+    const body = res.getBody();    
+    expect(body.data).to.have.property('status');
+    expect(body.data.status).to.equal('APPROVED');
+  });
+}

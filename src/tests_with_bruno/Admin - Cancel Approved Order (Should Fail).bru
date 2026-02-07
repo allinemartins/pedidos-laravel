@@ -1,0 +1,28 @@
+meta {
+  name: Admin - Cancel Approved Order (Should Fail)
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/travel-orders/{{order_id}}/status
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "status": "CANCELED"
+  }
+}
+
+tests {  
+  test("Status", function () {
+    expect(res.getStatus()).to.equal(422);
+  });  
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Auth - Me
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/auth/me
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+tests {
+  test("Status", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+  test("Response Body", function () {
+    const body = res.getBody();
+    expect(body).to.have.property('email');
+    expect(body.email).to.equal('admin@corp.com');
+  });
+}
+
+assert {
+  res.getBody(): isJson
+}

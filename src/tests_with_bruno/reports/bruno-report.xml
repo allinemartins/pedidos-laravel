@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Auth - Login" file="Auth - Login.bru" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-02-07T22:39:53.026" hostname="YY276757" time="0.543">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/auth/login" time="0.272"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/auth/login" time="0.272"/>
+  </testsuite>
+  <testsuite name="Auth - Me" file="Auth - Me.bru" errors="0" failures="0" skipped="0" tests="3" timestamp="2026-02-07T22:39:53.031" hostname="YY276757" time="0.116">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/auth/me" time="0.039"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/auth/me" time="0.039"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/auth/me" time="0.039"/>
+  </testsuite>
+  <testsuite name="Create Travel Order" file="Create Travel Order.bru" errors="0" failures="0" skipped="0" tests="3" timestamp="2026-02-07T22:39:53.031" hostname="YY276757" time="0.182">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/travel-orders" time="0.061"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders" time="0.061"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/travel-orders" time="0.061"/>
+  </testsuite>
+  <testsuite name="List My Travel Orders" file="List My Travel Orders.bru" errors="0" failures="0" skipped="0" tests="3" timestamp="2026-02-07T22:39:53.032" hostname="YY276757" time="0.124">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/travel-orders" time="0.041"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders" time="0.041"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/travel-orders" time="0.041"/>
+  </testsuite>
+  <testsuite name="Admin - Approve Travel Order" file="Admin - Approve Travel Order.bru" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-02-07T22:39:53.032" hostname="YY276757" time="0.143">
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status" time="0.071"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status" time="0.071"/>
+  </testsuite>
+  <testsuite name="Admin - Cancel Approved Order (Should Fail)" file="Admin - Cancel Approved Order (Should Fail).bru" errors="0" failures="0" skipped="0" tests="1" timestamp="2026-02-07T22:39:53.032" hostname="YY276757" time="0.097">
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status" time="0.097"/>
+  </testsuite>
+  <testsuite name="List Orders - Filter Status REQUESTED" file="List Orders - Filter Status REQUESTED.bru" errors="0" failures="0" skipped="0" tests="3" timestamp="2026-02-07T22:39:53.032" hostname="YY276757" time="0.131">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/travel-orders?status=REQUESTED" time="0.044"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders?status=REQUESTED" time="0.044"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/travel-orders?status=REQUESTED" time="0.044"/>
+  </testsuite>
+  <testsuite name="List Orders - Filter Destination Paris" file="List Orders - Filter Destination Paris.bru" errors="0" failures="0" skipped="0" tests="3" timestamp="2026-02-07T22:39:53.032" hostname="YY276757" time="0.149">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/travel-orders?destination=Par" time="0.050"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders?destination=Par" time="0.050"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/travel-orders?destination=Par" time="0.050"/>
+  </testsuite>
+  <testsuite name="List Orders - Filter Travel Range" file="List Orders - Filter Travel Range.bru" errors="0" failures="0" skipped="0" tests="3" timestamp="2026-02-07T22:39:53.032" hostname="YY276757" time="0.135">
+    <testcase name="res.getBody() isJson" status="pass" classname="http://localhost:8080/api/travel-orders?travel_from=2026-03-01&amp;travel_to=2026-03-10" time="0.045"/>
+    <testcase name="Status" status="pass" classname="http://localhost:8080/api/travel-orders?travel_from=2026-03-01&amp;travel_to=2026-03-10" time="0.045"/>
+    <testcase name="Response Body" status="pass" classname="http://localhost:8080/api/travel-orders?travel_from=2026-03-01&amp;travel_to=2026-03-10" time="0.045"/>
+  </testsuite>
+</testsuites>

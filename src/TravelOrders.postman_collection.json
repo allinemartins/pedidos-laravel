@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "Travel Orders API",
+    "description": "Collection to test the Travel Orders microservice (Laravel + JWT)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@corp.com\",\n  \"password\": \"password\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "login"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var json = pm.response.json();",
+              "pm.environment.set('token', json.access_token);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth - Me",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/auth/me",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "me"]
+        }
+      }
+    },
+    {
+      "name": "Create Travel Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requester_name\": \"Alline Martins\",\n  \"destination\": \"Paris\",\n  \"departure_date\": \"2026-03-01\",\n  \"return_date\": \"2026-03-10\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/travel-orders",
+          "host": ["{{base_url}}"],
+          "path": ["travel-orders"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var json = pm.response.json();",
+              "pm.environment.set('order_id', json.data.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "List My Travel Orders",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/travel-orders",
+          "host": ["{{base_url}}"],
+          "path": ["travel-orders"]
+        }
+      }
+    },
+    {
+      "name": "Admin - Approve Travel Order",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"APPROVED\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/travel-orders/{{order_id}}/status",
+          "host": ["{{base_url}}"],
+          "path": ["travel-orders", "{{order_id}}", "status"]
+        }
+      }
+    },
+    {
+      "name": "Admin - Cancel Approved Order (Should Fail)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"CANCELED\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/travel-orders/{{order_id}}/status",
+          "host": ["{{base_url}}"],
+          "path": ["travel-orders", "{{order_id}}", "status"]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1272 @@
+[
+  {
+    "iterationIndex": 0,
+    "results": [
+      {
+        "test": {
+          "filename": "Auth - Login.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/api/auth/login",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "data": "{\n  \"email\": \"admin@corp.com\",\n  \"password\": \"password\"\n}"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:04 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3NzA1MDQwMDQsImV4cCI6MTc3MDUwNzYwNCwibmJmIjoxNzcwNTA0MDA0LCJqdGkiOiJnQ1MwczhaVzNxWjJlb2xVIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIjoiQURNSU4ifQ.X5ZnugPO71dkspY5881aGAvjE4slvQZjdm9ZaEBC2L0",
+            "tokenType": "bearer",
+            "expiresIn": 3600
+          },
+          "url": "http://localhost/api/auth/login",
+          "responseTime": 289
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "E2e8Km4NBJdYSiMd5wNY0",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "TsHiBUnhsr7NY1M5-d_fh"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.5434946,
+        "name": "Auth - Login",
+        "path": "Auth - Login",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Auth - Me.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/auth/me",
+          "headers": {
+            "Authorization": "Bearer ********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:04 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "id": 1,
+            "name": "Admin User",
+            "email": "admin@corp.com",
+            "email_verified_at": null,
+            "role": "ADMIN",
+            "created_at": "2026-02-07T19:06:24.000000Z",
+            "updated_at": "2026-02-07T19:06:24.000000Z"
+          },
+          "url": "http://localhost/api/auth/me",
+          "responseTime": 39
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "INN4w2XOHraR4PhFj98Fo",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "WXzsNpcj5u6wkS4tUaNZ2"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "7TRCdcipYqG6OH9VtqbIE"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1165138,
+        "name": "Auth - Me",
+        "path": "Auth - Me",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Create Travel Order.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/api/travel-orders",
+          "headers": {
+            "Authorization": "Bearer ********",
+            "Content-Type": "application/json"
+          },
+          "data": "{\n  \"requester_name\": \"Alline Martins\",\n  \"destination\": \"Paris\",\n  \"departure_date\": \"2026-03-01\",\n  \"return_date\": \"2026-03-10\"\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:04 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "data": {
+              "id": "019c3a43-2550-7066-8d43-27eb7eb22a5d",
+              "requesterName": "Alline Martins",
+              "destination": "Paris",
+              "departureDate": "2026-03-01",
+              "returnDate": "2026-03-10",
+              "status": "REQUESTED",
+              "createdAt": "2026-02-07T22:40:04.000000Z",
+              "updatedAt": "2026-02-07T22:40:04.000000Z"
+            }
+          },
+          "url": "http://localhost/api/travel-orders",
+          "responseTime": 63
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "nMJlE_8RJVYoIcZD422X4",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "B5-mwQt7-4bk0tXfs7y8R"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "mDUq3N2xDqDC7N00XhyVF"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1820011,
+        "name": "Create Travel Order",
+        "path": "Create Travel Order",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "List My Travel Orders.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/travel-orders",
+          "headers": {
+            "Authorization": "Bearer ********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:05 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "data": [
+              {
+                "id": "019c3a43-2550-7066-8d43-27eb7eb22a5d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "REQUESTED",
+                "createdAt": "2026-02-07T22:40:04.000000Z",
+                "updatedAt": "2026-02-07T22:40:04.000000Z"
+              },
+              {
+                "id": "019c3a2f-a1ce-7207-b00e-095e3367d934",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:18:46.000000Z",
+                "updatedAt": "2026-02-07T22:18:46.000000Z"
+              },
+              {
+                "id": "019c3a2e-e330-7194-91ae-cdaab76bbad3",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:17:57.000000Z",
+                "updatedAt": "2026-02-07T22:17:57.000000Z"
+              },
+              {
+                "id": "019c3a2b-c222-73b2-ae68-37c10df807b3",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:14:32.000000Z",
+                "updatedAt": "2026-02-07T22:14:32.000000Z"
+              },
+              {
+                "id": "019c3a26-cacf-7281-835b-dc5681a0332d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:09:06.000000Z",
+                "updatedAt": "2026-02-07T22:09:07.000000Z"
+              },
+              {
+                "id": "019c3a23-0563-70cc-add2-c1b56d61c9c1",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:04:59.000000Z",
+                "updatedAt": "2026-02-07T22:05:15.000000Z"
+              },
+              {
+                "id": "019c3a1f-733d-71c9-9d9b-51d45801026c",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:01:05.000000Z",
+                "updatedAt": "2026-02-07T22:01:05.000000Z"
+              },
+              {
+                "id": "019c3a1b-f47b-73d3-8911-158d78b314ea",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:57:16.000000Z",
+                "updatedAt": "2026-02-07T21:57:17.000000Z"
+              },
+              {
+                "id": "019c3a1a-c781-71c0-8bdd-90e86d241c99",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:55:59.000000Z",
+                "updatedAt": "2026-02-07T21:55:59.000000Z"
+              },
+              {
+                "id": "019c3a19-998b-734d-b52b-37ec57d6ab36",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:54:42.000000Z",
+                "updatedAt": "2026-02-07T21:54:42.000000Z"
+              },
+              {
+                "id": "019c3a18-d4ac-722e-be18-0e58c7d76f18",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:53:51.000000Z",
+                "updatedAt": "2026-02-07T21:53:52.000000Z"
+              },
+              {
+                "id": "019c3a17-a6fb-70a7-b3e9-9ea8f184537d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:52:34.000000Z",
+                "updatedAt": "2026-02-07T21:52:35.000000Z"
+              },
+              {
+                "id": "019c3a14-d9ba-7076-9ef3-afcfb155161e",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:49:30.000000Z",
+                "updatedAt": "2026-02-07T21:49:31.000000Z"
+              },
+              {
+                "id": "019c3a0e-eb25-725f-a723-72c4c2c6784e",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:43:02.000000Z",
+                "updatedAt": "2026-02-07T21:43:02.000000Z"
+              },
+              {
+                "id": "019c3a07-8a8e-7339-b7dd-3a2667ed94bb",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:34:58.000000Z",
+                "updatedAt": "2026-02-07T21:34:59.000000Z"
+              },
+              {
+                "id": "019c3a06-3482-73ea-92e8-1e861b457644",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:33:31.000000Z",
+                "updatedAt": "2026-02-07T21:33:31.000000Z"
+              },
+              {
+                "id": "019c39ba-f62a-70e0-b4f1-21e70076e612",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T20:11:19.000000Z",
+                "updatedAt": "2026-02-07T20:11:20.000000Z"
+              },
+              {
+                "id": "019c39b1-b79e-7307-b285-4a83e0ebaf6c",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T20:01:14.000000Z",
+                "updatedAt": "2026-02-07T20:01:14.000000Z"
+              }
+            ],
+            "links": {
+              "first": "http://localhost:8080/api/travel-orders?page=1",
+              "last": "http://localhost:8080/api/travel-orders?page=1",
+              "prev": null,
+              "next": null
+            },
+            "meta": {
+              "current_page": 1,
+              "from": 1,
+              "last_page": 1,
+              "links": [
+                {
+                  "url": null,
+                  "label": "&laquo; Previous",
+                  "page": null,
+                  "active": false
+                },
+                {
+                  "url": "http://localhost:8080/api/travel-orders?page=1",
+                  "label": "1",
+                  "page": 1,
+                  "active": true
+                },
+                {
+                  "url": null,
+                  "label": "Next &raquo;",
+                  "page": null,
+                  "active": false
+                }
+              ],
+              "path": "http://localhost:8080/api/travel-orders",
+              "per_page": 20,
+              "to": 18,
+              "total": 18
+            }
+          },
+          "url": "http://localhost/api/travel-orders",
+          "responseTime": 63
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "mHmbLQ4TRMG8zzOvS5sYO",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "nTWC4wAhJdp2U36jqpWJh"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "ovCO68h76CuPAHpOHwoqa"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1240919,
+        "name": "List My Travel Orders",
+        "path": "List My Travel Orders",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Admin - Approve Travel Order.bru"
+        },
+        "request": {
+          "method": "PATCH",
+          "url": "http://localhost:8080/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status",
+          "headers": {
+            "Authorization": "Bearer ********",
+            "Content-Type": "application/json"
+          },
+          "data": "{\n  \"status\": \"APPROVED\"\n}"
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:05 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "data": {
+              "id": "019c3a43-2550-7066-8d43-27eb7eb22a5d",
+              "requesterName": "Alline Martins",
+              "destination": "Paris",
+              "departureDate": "2026-03-01",
+              "returnDate": "2026-03-10",
+              "status": "APPROVED",
+              "createdAt": "2026-02-07T22:40:04.000000Z",
+              "updatedAt": "2026-02-07T22:40:05.000000Z"
+            }
+          },
+          "url": "http://localhost/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status",
+          "responseTime": 70
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "H1oIBgEsZaRsPbASturqp"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "AWwKkigsRbGqTfWwN3C3M"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1426831,
+        "name": "Admin - Approve Travel Order",
+        "path": "Admin - Approve Travel Order",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Admin - Cancel Approved Order (Should Fail).bru"
+        },
+        "request": {
+          "method": "PATCH",
+          "url": "http://localhost:8080/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status",
+          "headers": {
+            "Authorization": "Bearer ********",
+            "Content-Type": "application/json"
+          },
+          "data": "{\n  \"status\": \"CANCELED\"\n}"
+        },
+        "response": {
+          "status": 422,
+          "statusText": "Unprocessable Content",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:05 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "message": "Cannot cancel an approved order"
+          },
+          "url": "http://localhost/api/travel-orders/019c3a43-2550-7066-8d43-27eb7eb22a5d/status",
+          "responseTime": 41
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "Ad-1Ox4sXTF8_J4RTzn40"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0974523,
+        "name": "Admin - Cancel Approved Order (Should Fail)",
+        "path": "Admin - Cancel Approved Order (Should Fail)",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "List Orders - Filter Status REQUESTED.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/travel-orders?status=REQUESTED",
+          "headers": {
+            "Authorization": "Bearer ********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:05 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "data": [],
+            "links": {
+              "first": "http://localhost:8080/api/travel-orders?page=1",
+              "last": "http://localhost:8080/api/travel-orders?page=1",
+              "prev": null,
+              "next": null
+            },
+            "meta": {
+              "current_page": 1,
+              "from": null,
+              "last_page": 1,
+              "links": [
+                {
+                  "url": null,
+                  "label": "&laquo; Previous",
+                  "page": null,
+                  "active": false
+                },
+                {
+                  "url": "http://localhost:8080/api/travel-orders?page=1",
+                  "label": "1",
+                  "page": 1,
+                  "active": true
+                },
+                {
+                  "url": null,
+                  "label": "Next &raquo;",
+                  "page": null,
+                  "active": false
+                }
+              ],
+              "path": "http://localhost:8080/api/travel-orders",
+              "per_page": 20,
+              "to": null,
+              "total": 0
+            }
+          },
+          "url": "http://localhost/api/travel-orders?status=REQUESTED",
+          "responseTime": 45
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "N6nVY2zIWjXzKcQEOgLqq",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "av7wNLc_Gz9Q8VgfDLNq9"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "0252iaO3nFoy6DyqnVKml"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1309476,
+        "name": "List Orders - Filter Status REQUESTED",
+        "path": "List Orders - Filter Status REQUESTED",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "List Orders - Filter Destination Paris.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/travel-orders?destination=Par",
+          "headers": {
+            "Authorization": "Bearer ********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:05 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "data": [
+              {
+                "id": "019c3a43-2550-7066-8d43-27eb7eb22a5d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:40:04.000000Z",
+                "updatedAt": "2026-02-07T22:40:05.000000Z"
+              },
+              {
+                "id": "019c3a2f-a1ce-7207-b00e-095e3367d934",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:18:46.000000Z",
+                "updatedAt": "2026-02-07T22:18:46.000000Z"
+              },
+              {
+                "id": "019c3a2e-e330-7194-91ae-cdaab76bbad3",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:17:57.000000Z",
+                "updatedAt": "2026-02-07T22:17:57.000000Z"
+              },
+              {
+                "id": "019c3a2b-c222-73b2-ae68-37c10df807b3",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:14:32.000000Z",
+                "updatedAt": "2026-02-07T22:14:32.000000Z"
+              },
+              {
+                "id": "019c3a26-cacf-7281-835b-dc5681a0332d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:09:06.000000Z",
+                "updatedAt": "2026-02-07T22:09:07.000000Z"
+              },
+              {
+                "id": "019c3a23-0563-70cc-add2-c1b56d61c9c1",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:04:59.000000Z",
+                "updatedAt": "2026-02-07T22:05:15.000000Z"
+              },
+              {
+                "id": "019c3a1f-733d-71c9-9d9b-51d45801026c",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:01:05.000000Z",
+                "updatedAt": "2026-02-07T22:01:05.000000Z"
+              },
+              {
+                "id": "019c3a1b-f47b-73d3-8911-158d78b314ea",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:57:16.000000Z",
+                "updatedAt": "2026-02-07T21:57:17.000000Z"
+              },
+              {
+                "id": "019c3a1a-c781-71c0-8bdd-90e86d241c99",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:55:59.000000Z",
+                "updatedAt": "2026-02-07T21:55:59.000000Z"
+              },
+              {
+                "id": "019c3a19-998b-734d-b52b-37ec57d6ab36",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:54:42.000000Z",
+                "updatedAt": "2026-02-07T21:54:42.000000Z"
+              },
+              {
+                "id": "019c3a18-d4ac-722e-be18-0e58c7d76f18",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:53:51.000000Z",
+                "updatedAt": "2026-02-07T21:53:52.000000Z"
+              },
+              {
+                "id": "019c3a17-a6fb-70a7-b3e9-9ea8f184537d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:52:34.000000Z",
+                "updatedAt": "2026-02-07T21:52:35.000000Z"
+              },
+              {
+                "id": "019c3a14-d9ba-7076-9ef3-afcfb155161e",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:49:30.000000Z",
+                "updatedAt": "2026-02-07T21:49:31.000000Z"
+              },
+              {
+                "id": "019c3a0e-eb25-725f-a723-72c4c2c6784e",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:43:02.000000Z",
+                "updatedAt": "2026-02-07T21:43:02.000000Z"
+              },
+              {
+                "id": "019c3a07-8a8e-7339-b7dd-3a2667ed94bb",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:34:58.000000Z",
+                "updatedAt": "2026-02-07T21:34:59.000000Z"
+              },
+              {
+                "id": "019c3a06-3482-73ea-92e8-1e861b457644",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:33:31.000000Z",
+                "updatedAt": "2026-02-07T21:33:31.000000Z"
+              },
+              {
+                "id": "019c39ba-f62a-70e0-b4f1-21e70076e612",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T20:11:19.000000Z",
+                "updatedAt": "2026-02-07T20:11:20.000000Z"
+              },
+              {
+                "id": "019c39b1-b79e-7307-b285-4a83e0ebaf6c",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T20:01:14.000000Z",
+                "updatedAt": "2026-02-07T20:01:14.000000Z"
+              }
+            ],
+            "links": {
+              "first": "http://localhost:8080/api/travel-orders?page=1",
+              "last": "http://localhost:8080/api/travel-orders?page=1",
+              "prev": null,
+              "next": null
+            },
+            "meta": {
+              "current_page": 1,
+              "from": 1,
+              "last_page": 1,
+              "links": [
+                {
+                  "url": null,
+                  "label": "&laquo; Previous",
+                  "page": null,
+                  "active": false
+                },
+                {
+                  "url": "http://localhost:8080/api/travel-orders?page=1",
+                  "label": "1",
+                  "page": 1,
+                  "active": true
+                },
+                {
+                  "url": null,
+                  "label": "Next &raquo;",
+                  "page": null,
+                  "active": false
+                }
+              ],
+              "path": "http://localhost:8080/api/travel-orders",
+              "per_page": 20,
+              "to": 18,
+              "total": 18
+            }
+          },
+          "url": "http://localhost/api/travel-orders?destination=Par",
+          "responseTime": 55
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "DgVUFFwhfIcHGf-_5uhDZ",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "-jXIHi7gR8ZDND8GEusjN"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "1Y6gZv6lsSLHoU7BV95CD"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1493094,
+        "name": "List Orders - Filter Destination Paris",
+        "path": "List Orders - Filter Destination Paris",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "List Orders - Filter Travel Range.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/travel-orders?travel_from=2026-03-01&travel_to=2026-03-10",
+          "headers": {
+            "Authorization": "Bearer ********"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "server": "nginx/1.27.5",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-powered-by": "PHP/8.2.30",
+            "cache-control": "no-cache, private",
+            "date": "Sat, 07 Feb 2026 22:40:05 GMT",
+            "access-control-allow-origin": "*"
+          },
+          "data": {
+            "data": [
+              {
+                "id": "019c3a43-2550-7066-8d43-27eb7eb22a5d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:40:04.000000Z",
+                "updatedAt": "2026-02-07T22:40:05.000000Z"
+              },
+              {
+                "id": "019c3a2f-a1ce-7207-b00e-095e3367d934",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:18:46.000000Z",
+                "updatedAt": "2026-02-07T22:18:46.000000Z"
+              },
+              {
+                "id": "019c3a2e-e330-7194-91ae-cdaab76bbad3",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:17:57.000000Z",
+                "updatedAt": "2026-02-07T22:17:57.000000Z"
+              },
+              {
+                "id": "019c3a2b-c222-73b2-ae68-37c10df807b3",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:14:32.000000Z",
+                "updatedAt": "2026-02-07T22:14:32.000000Z"
+              },
+              {
+                "id": "019c3a26-cacf-7281-835b-dc5681a0332d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:09:06.000000Z",
+                "updatedAt": "2026-02-07T22:09:07.000000Z"
+              },
+              {
+                "id": "019c3a23-0563-70cc-add2-c1b56d61c9c1",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:04:59.000000Z",
+                "updatedAt": "2026-02-07T22:05:15.000000Z"
+              },
+              {
+                "id": "019c3a1f-733d-71c9-9d9b-51d45801026c",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T22:01:05.000000Z",
+                "updatedAt": "2026-02-07T22:01:05.000000Z"
+              },
+              {
+                "id": "019c3a1b-f47b-73d3-8911-158d78b314ea",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:57:16.000000Z",
+                "updatedAt": "2026-02-07T21:57:17.000000Z"
+              },
+              {
+                "id": "019c3a1a-c781-71c0-8bdd-90e86d241c99",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:55:59.000000Z",
+                "updatedAt": "2026-02-07T21:55:59.000000Z"
+              },
+              {
+                "id": "019c3a19-998b-734d-b52b-37ec57d6ab36",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:54:42.000000Z",
+                "updatedAt": "2026-02-07T21:54:42.000000Z"
+              },
+              {
+                "id": "019c3a18-d4ac-722e-be18-0e58c7d76f18",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:53:51.000000Z",
+                "updatedAt": "2026-02-07T21:53:52.000000Z"
+              },
+              {
+                "id": "019c3a17-a6fb-70a7-b3e9-9ea8f184537d",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:52:34.000000Z",
+                "updatedAt": "2026-02-07T21:52:35.000000Z"
+              },
+              {
+                "id": "019c3a14-d9ba-7076-9ef3-afcfb155161e",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:49:30.000000Z",
+                "updatedAt": "2026-02-07T21:49:31.000000Z"
+              },
+              {
+                "id": "019c3a0e-eb25-725f-a723-72c4c2c6784e",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:43:02.000000Z",
+                "updatedAt": "2026-02-07T21:43:02.000000Z"
+              },
+              {
+                "id": "019c3a07-8a8e-7339-b7dd-3a2667ed94bb",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:34:58.000000Z",
+                "updatedAt": "2026-02-07T21:34:59.000000Z"
+              },
+              {
+                "id": "019c3a06-3482-73ea-92e8-1e861b457644",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T21:33:31.000000Z",
+                "updatedAt": "2026-02-07T21:33:31.000000Z"
+              },
+              {
+                "id": "019c39ba-f62a-70e0-b4f1-21e70076e612",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T20:11:19.000000Z",
+                "updatedAt": "2026-02-07T20:11:20.000000Z"
+              },
+              {
+                "id": "019c39b1-b79e-7307-b285-4a83e0ebaf6c",
+                "requesterName": "Alline Martins",
+                "destination": "Paris",
+                "departureDate": "2026-03-01",
+                "returnDate": "2026-03-10",
+                "status": "APPROVED",
+                "createdAt": "2026-02-07T20:01:14.000000Z",
+                "updatedAt": "2026-02-07T20:01:14.000000Z"
+              }
+            ],
+            "links": {
+              "first": "http://localhost:8080/api/travel-orders?page=1",
+              "last": "http://localhost:8080/api/travel-orders?page=1",
+              "prev": null,
+              "next": null
+            },
+            "meta": {
+              "current_page": 1,
+              "from": 1,
+              "last_page": 1,
+              "links": [
+                {
+                  "url": null,
+                  "label": "&laquo; Previous",
+                  "page": null,
+                  "active": false
+                },
+                {
+                  "url": "http://localhost:8080/api/travel-orders?page=1",
+                  "label": "1",
+                  "page": 1,
+                  "active": true
+                },
+                {
+                  "url": null,
+                  "label": "Next &raquo;",
+                  "page": null,
+                  "active": false
+                }
+              ],
+              "path": "http://localhost:8080/api/travel-orders",
+              "per_page": 20,
+              "to": 18,
+              "total": 18
+            }
+          },
+          "url": "http://localhost/api/travel-orders?travel_from=2026-03-01&travel_to=2026-03-10",
+          "responseTime": 55
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [
+          {
+            "uid": "Vuia-aGIO_aFpWO6zgREp",
+            "lhsExpr": "res.getBody()",
+            "rhsExpr": "isJson",
+            "rhsOperand": "",
+            "operator": "isJson",
+            "status": "pass"
+          }
+        ],
+        "testResults": [
+          {
+            "description": "Status",
+            "status": "pass",
+            "uid": "4T-WsUz430vQoLGzouZS7"
+          },
+          {
+            "description": "Response Body",
+            "status": "pass",
+            "uid": "jHcSDUwZnvDCFgcTJZs5Y"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.1352734,
+        "name": "List Orders - Filter Travel Range",
+        "path": "List Orders - Filter Travel Range",
+        "iterationIndex": 0
+      }
+    ],
+    "summary": {
+      "totalRequests": 9,
+      "passedRequests": 9,
+      "failedRequests": 0,
+      "errorRequests": 0,
+      "skippedRequests": 0,
+      "totalAssertions": 7,
+      "passedAssertions": 7,
+      "failedAssertions": 0,
+      "totalTests": 16,
+      "passedTests": 16,
+      "failedTests": 0,
+      "totalPreRequestTests": 0,
+      "passedPreRequestTests": 0,
+      "failedPreRequestTests": 0,
+      "totalPostResponseTests": 0,
+      "passedPostResponseTests": 0,
+      "failedPostResponseTests": 0
+    }
+  }
+]

@@ -1,0 +1,33 @@
+meta {
+  name: List Orders - Filter Destination Paris
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{base_url}}/travel-orders?destination=Par
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+tests {
+  test("Status", function () { 
+    expect(res.getStatus()).to.equal(200);
+  });
+  test("Response Body", function () {
+    const responseBody = res.getBody();
+    expect(responseBody).to.have.property('data');
+    expect(responseBody.data).to.be.an('array');
+    responseBody.data.forEach(order => {
+      expect(order.destination).to.equal("Paris");
+    });
+  });
+}
+
+assert {
+   res.getBody(): isJson
+}  

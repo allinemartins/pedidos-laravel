@@ -1,0 +1,40 @@
+meta {
+  name: List Orders - Filter Travel Range
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{base_url}}/travel-orders?travel_from=2026-03-01&travel_to=2026-03-10
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+tests {
+  test("Status", function () { 
+    expect(res.getStatus()).to.equal(200);
+  });
+  test("Response Body", function () {
+    const responseBody = res.getBody();
+    expect(responseBody).to.have.property('data');
+    expect(responseBody.data).to.be.an('array');
+    responseBody.data.forEach(order => {      
+      expect(order).to.have.property('departureDate');
+      expect(order).to.have.property('returnDate');
+      const travelFrom = new Date(order.departureDate);
+      const travelTo = new Date(order.returnDate);
+      const filterFrom = new Date('2026-03-01');
+      const filterTo = new Date('2026-03-10');
+      expect(travelFrom).to.be.within(filterFrom, filterTo);
+      expect(travelTo).to.be.within(filterFrom, filterTo);
+    });
+  });
+}
+
+assert {
+  res.getBody(): isJson
+}

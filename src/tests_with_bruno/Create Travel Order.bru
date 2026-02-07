@@ -1,0 +1,48 @@
+meta {
+  name: Create Travel Order
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/travel-orders
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "requester_name": "Alline Martins",
+    "destination": "Paris",
+    "departure_date": "2026-03-01",
+    "return_date": "2026-03-10"
+  }
+}
+
+tests {
+  test("Status", function () {
+    expect(res.getStatus()).to.equal(201);
+  });
+  test("Response Body", function () {
+    const responseBody = res.getBody();
+    expect(responseBody).to.have.property('data');
+    expect(responseBody.data).to.have.property('id');
+    expect(responseBody.data.requesterName).to.equal("Alline Martins");
+    expect(responseBody.data.destination).to.equal("Paris");
+    expect(responseBody.data.departureDate).to.equal("2026-03-01");
+    expect(responseBody.data.returnDate).to.equal("2026-03-10");
+  });
+}
+
+script:post-response {
+  bru.setEnvVar('order_id', res.getBody().data.id);
+}
+
+assert {
+  res.getBody(): isJson
+}

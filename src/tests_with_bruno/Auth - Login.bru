@@ -1,0 +1,36 @@
+meta {
+  name: Auth - Login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/auth/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "email": "admin@corp.com",
+    "password": "password"
+  }
+}
+
+assert {
+  res.getBody(): isJson
+}
+
+script:post-response {
+  bru.setEnvVar('token', res.getBody().accessToken);
+}
+
+tests {
+  test("Status", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+}

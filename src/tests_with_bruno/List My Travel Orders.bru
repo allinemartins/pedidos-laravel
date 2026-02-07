@@ -1,0 +1,39 @@
+meta {
+  name: List My Travel Orders
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/travel-orders
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+tests {
+  test("Status", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+  test("Response Body", function () {
+    const responseBody = res.getBody();
+    expect(responseBody).to.have.property('data');
+    expect(responseBody.data).to.be.an('array');
+
+    const orderId = bru.getEnvVar("order_id");
+    const order = responseBody.data.find(o => o.id === orderId);    
+
+    expect(order).to.exist;
+    expect(order.requesterName).to.equal("Alline Martins");
+    expect(order.destination).to.equal("Paris");
+    expect(order.departureDate).to.equal("2026-03-01");
+    expect(order.returnDate).to.equal("2026-03-10");
+  });
+}
+
+assert {
+   res.getBody(): isJson
+}  
