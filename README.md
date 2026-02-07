@@ -63,10 +63,6 @@ Este microsserviço foi desenvolvido utilizando as seguintes tecnologias e vers�
 
 ## Arquitetura da Solução e Organização do Código
 
-O diagrama abaixo representa a arquitetura do microsserviço de pedidos de viagem.
-
-![Arquitetura do Microsserviço](docs/architecture.png)
-
 ### routes/api.php
 Define o contrato da API REST e centraliza autenticação e middlewares.
 
