@@ -1,5 +1,12 @@
 # Travel Orders Service – Laravel Microservice
 
+![PHP](https://img.shields.io/badge/PHP-8.2-blue?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-12-red?logo=laravel&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-blue?logo=docker&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-PHPUnit-success?logo=phpunit&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql&logoColor=white)
+![JWT](https://img.shields.io/badge/Auth-JWT-purple)
+
 Microsserviço desenvolvido em **Laravel** para gerenciamento de **pedidos de viagem corporativa**, expondo uma **API REST protegida por JWT**, com regras de negócio, controle de acesso por perfil e testes automatizados.
 
 ---
@@ -120,6 +127,11 @@ Subir containers:
 ```
 docker compose up -d --build
 ```
+Instalar dependências 
+```
+docker compose exec app composer install
+
+```
 Executar migrations:
 ```
 docker compose exec app php artisan migrate
@@ -132,9 +144,23 @@ Executar testes:
 ```
 docker compose exec app php artisan test
 ```
+Acessar a aplicação
+```
+http://localhost:8080
+```
 ---
+## Comandos úteis
+Limpar caches do Laravel:
+```
+docker compose exec app php artisan optimize:clear
+```
+Parar e remover containers e volumes (reset completo do ambiente):
+```
+docker compose down -v
+```
 
-## 👤 Usuários de Teste
+---
+## Usuários de Teste
 
 | Perfil | Email | Senha |
 |------|------|------|
