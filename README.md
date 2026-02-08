@@ -17,7 +17,7 @@ Este serviço é responsável por gerenciar pedidos de viagem corporativa, permi
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 Este microsserviço foi desenvolvido utilizando as seguintes tecnologias e versões:
 
